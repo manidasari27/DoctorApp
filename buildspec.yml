@@ -2,8 +2,6 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-
     commands:
       - apt-get update
       - apt-get install -y openjdk-17-jdk
