@@ -1,9 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      php: 8.1  # Set the PHP version here
     commands:
       - echo Installing dependencies...
       - curl -sS https://getcomposer.org/installer | php
