@@ -15,7 +15,7 @@ phases:
 
   build:
     commands:
-      - vendor/bin/phpstan analyse
+      - vendor/bin/phpstan analyse -c phpstan.neon
 
 reports:
   phpstan-report:
