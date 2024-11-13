@@ -10,6 +10,8 @@ phases:
   pre_build:
     commands:
       - echo "Running PHPStan static analysis..."
+      - ls 
+      - echo "LS COMPLETE!!!!!"
 
   build:
     commands:
