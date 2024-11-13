@@ -1,5 +1,4 @@
 parameters:
-  level: 1 
-  paths:
-    - doctor/
-  memory-limit: 512M
+    level: 2
+    paths:
+       - login.php
