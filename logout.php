@@ -1,5 +1,5 @@
 <?php 
-
+	$database = null;
 	session_start();
 
 	$_SESSION = array();

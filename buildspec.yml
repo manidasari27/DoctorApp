@@ -6,16 +6,26 @@ phases:
       - echo Installing dependencies...
       - curl -sS https://getcomposer.org/installer | php
       - php composer.phar install --no-scripts --no-interaction --prefer-dist
+      - echo "Installing Sonar Scanner..."
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+      - unzip sonar-scanner-cli-4.6.2.2472-linux.zip
+      - export PATH=$PATH:./sonar-scanner-4.6.2.2472-linux/bin
+      - echo "pre build stage completed" 
 
   pre_build:
     commands:
       - echo "Running PHPStan static analysis..."
-      - ls 
-      - echo "LS COMPLETE!!!!!"
 
   build:
     commands:
       - vendor/bin/phpstan analyse || true
+      - echo " PHPStan static analysis COMPLETE..."
+      - sonar-scanner -Dsonar.login=39c1bcd5efecccd9062f593ab1c93762462e676c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=manidasari27_DoctorApp -Dsonar.organization=manidasari27 || true
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=manidasari27_DoctorApp >result.json
+      - cat result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+      - echo "build stage completed"
 
 reports:
   phpstan-report:
@@ -23,3 +33,7 @@ reports:
       - phpstan.log
     file-format: RAW
     base-directory: ./
+
+artifacts:
+  files:
+    - "**/*"

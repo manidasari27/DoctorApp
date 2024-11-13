@@ -1,3 +1,4 @@
+/** @var array $config */
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
 <body>
     <?php
 
+    $database = null;
     //learn from w3schools.com
     //Unset all the server side variables
 
