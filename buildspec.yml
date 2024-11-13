@@ -4,8 +4,8 @@ phases:
   install:
     runtime-versions:
       #java: corretto11
-      - java -version
     commands:
+      - java -version
       - echo Installing dependencies...
       - curl -sS https://getcomposer.org/installer | php
       - php composer.phar install --no-scripts --no-interaction --prefer-dist
