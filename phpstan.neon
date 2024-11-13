@@ -1,0 +1,5 @@
+parameters:
+  level: 1 # Set analysis level (0-9), 9 being the strictest
+  paths:
+    - DoctorApp  # Replace 'src' with the path to your PHP source files
+  memoryLimit: 512M

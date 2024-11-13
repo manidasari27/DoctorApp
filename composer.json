@@ -1,0 +1,10 @@
+{
+    "require-dev": {
+        "phpstan/phpstan": "^1.6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPStan\\": "DoctorApp/"
+        }
+    }
+}

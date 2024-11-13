@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      php: 7.4  # Set the PHP version here
+    commands:
+      - echo Installing dependencies...
+      - curl -sS https://getcomposer.org/installer | php
+      - php composer.phar install --no-scripts --no-interaction --prefer-dist
+
+  pre_build:
+    commands:
+      - echo "Running PHPStan static analysis..."
+
+  build:
+    commands:
+      - ./vendor/bin/phpstan analyse
+
+reports:
+  phpstan-report:
+    files:
+      - phpstan.log
+    file-format: RAW
+    base-directory: ./
