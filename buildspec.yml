@@ -10,10 +10,9 @@ phases:
       - php composer.phar install --no-scripts --no-interaction --prefer-dist
       - echo "Installing Sonar Scanner..."
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
-      - unzip sonar-scanner-cli-4.8.0.2856-linux.zip
-      - export PATH=$PATH:./sonar-scanner-cli-4.8.0.2856-linux/bin
+      - sudo unzip sonar-scanner-cli-4.8.0.2856-linux.zip
+      - sudo export PATH=$PATH:./sonar-scanner-cli-4.8.0.2856-linux/bin
       - echo "pre build stage completed" 
-      - sonar-scanner
 
   pre_build:
     commands:
@@ -23,7 +22,7 @@ phases:
     commands:
       - vendor/bin/phpstan analyse || true
       - echo " PHPStan static analysis COMPLETE..."
-      - sonar-scanner -Dsonar.login=39c1bcd5efecccd9062f593ab1c93762462e676c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=manidasari27_DoctorApp -Dsonar.organization=manidasari27 || true
+      - sudo sonar-scanner -Dsonar.login=39c1bcd5efecccd9062f593ab1c93762462e676c -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=manidasari27_DoctorApp -Dsonar.organization=manidasari27 || true
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=manidasari27_DoctorApp >result.json
       - cat result.json
