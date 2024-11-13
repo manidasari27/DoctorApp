@@ -13,6 +13,7 @@ phases:
       - unzip sonar-scanner-cli-4.8.0.2856-linux.zip
       - export PATH=$PATH:./sonar-scanner-cli-4.8.0.2856-linux/bin
       - echo "pre build stage completed" 
+      - sonar-scanner
 
   pre_build:
     commands:
