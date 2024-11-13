@@ -12,8 +12,6 @@ phases:
       - echo "Running PHPStan static analysis..."
       - ls 
       - echo "LS COMPLETE!!!!!"
-      - cd vendor
-      - ls
 
   build:
     commands:
