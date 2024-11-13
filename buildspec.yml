@@ -1,6 +1,7 @@
 version: 0.2
 
 phases:
+  install:
     commands:
       - echo Installing dependencies...
       - curl -sS https://getcomposer.org/installer | php
