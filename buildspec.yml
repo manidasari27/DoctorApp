@@ -22,7 +22,7 @@ phases:
   pre_build:
     commands:
       - echo "Running PHPStan static analysis..."
--6
+
   build:
     commands:
       - mvn verify sonar:sonar -Dsonar.projectKey=manidasari27_DoctorApp -Dsonar.organization=manidasari27 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=39c1bcd5efecccd9062f593ab1c93762462e676c
