@@ -8,9 +8,9 @@ phases:
       - curl -sS https://getcomposer.org/installer | php
       - php composer.phar install --no-scripts --no-interaction --prefer-dist
       - echo "Installing Sonar Scanner..."
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.1.3023-linux.zip 
-      - sudo unzip sonar-scanner-cli-4.8.1.3023-linux.zip 
-      - export PATH=$PATH:./sonar-scanner-4.8.1.3023-linux/bin/
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.2.0.4584-linux-x64.zip
+      - sudo unzip sonar-scanner-cli-6.2.0.4584-linux-x64.zip
+      - export PATH=$PATH:./sonar-scanner-6.2.0.4584-linux-x64/bin/
       - echo "pre build stage completed" 
       - echo $PATH
 
