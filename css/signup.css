@@ -2,6 +2,7 @@
 body{
     margin: 2%;
     background-color: #F6F7FA;
+    background-image: url(../img/bglogin.jpg);
 }
 .container{
     width: 45%;
